@@ -34,12 +34,14 @@ public class Competidor extends Atleta {
                 + " | Estatura: " + estatura + " m | Peso: " + peso
                 + " kg | Puntos: " + puntos;
     }
-}
 
+    // Versión 1: solo puntos
     public void actualizarRanking(int puntosObtenidos) {
         puntos += puntosObtenidos;
         rankingMundial = Math.max(1, rankingMundial - puntosObtenidos / 10);
     }
+
+    // Versión 2 (sobrecarga): puntos + medalla, con if anidado
     public void actualizarRanking(int puntosObtenidos, boolean ganoMedalla) {
         int bonificacion = 0;
         if (ganoMedalla) {
@@ -55,3 +57,4 @@ public class Competidor extends Atleta {
         }
         actualizarRanking(puntosObtenidos + bonificacion);
     }
+}
